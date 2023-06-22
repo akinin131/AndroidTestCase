@@ -42,6 +42,7 @@ class BasketballListAdapter : RecyclerView.Adapter<BasketballListAdapter.MatchVi
             binding.eventHomeTeam.text = match.event_home_team
             binding.eventAwayTeam.text = match.event_away_team
             binding.eventFinalResult.text = match.event_final_result
+
         }
     }
 }
