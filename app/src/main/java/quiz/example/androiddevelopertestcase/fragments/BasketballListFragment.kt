@@ -15,7 +15,7 @@ import quiz.example.androiddevelopertestcase.adapter.BasketballListAdapter
 import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.ViewModelProvider
 import quiz.example.androiddevelopertestcase.databinding.FragmentBasketballListBinding
-import quiz.example.androiddevelopertestcase.vewModel.RetrofitViewModel
+import quiz.example.androiddevelopertestcase.viewModel.RetrofitViewModel
 
 class BasketballListFragment : Fragment() {
 

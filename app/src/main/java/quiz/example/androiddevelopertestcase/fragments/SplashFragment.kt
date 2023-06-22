@@ -12,7 +12,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import quiz.example.androiddevelopertestcase.vewModel.RetrofitViewModel
+import quiz.example.androiddevelopertestcase.viewModel.RetrofitViewModel
 
 import quiz.example.androiddevelopertestcase.R
 import quiz.example.androiddevelopertestcase.databinding.FragmentSplashBinding
