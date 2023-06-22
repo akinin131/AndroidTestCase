@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="quiz.example.androiddevelopertestcase.fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_basketballListFragment"
+            app:destination="@id/basketballListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/basketballListFragment"
+        android:name="quiz.example.androiddevelopertestcase.fragments.BasketballListFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_basketball_list">
+        <action
+            android:id="@+id/action_basketballListFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+        <action
+            android:id="@+id/action_basketballListFragment_to_notInternetFragment"
+            app:destination="@id/notInternetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="quiz.example.androiddevelopertestcase.fragments.WebViewFragment"
+        android:label="WebViewFragment">
+        <action
+            android:id="@+id/action_webViewFragment_to_basketballListFragment"
+            app:destination="@id/basketballListFragment" />
+        <action
+            android:id="@+id/action_webViewFragment_to_notInternetFragment"
+            app:destination="@id/notInternetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notInternetFragment"
+        android:name="quiz.example.androiddevelopertestcase.fragments.NotInternetFragment"
+        android:label="NotInternetFragment">
+        <action
+            android:id="@+id/action_notInternetFragment_to_mainFragment"
+            app:destination="@id/basketballListFragment" />
+    </fragment>
+</navigation>
