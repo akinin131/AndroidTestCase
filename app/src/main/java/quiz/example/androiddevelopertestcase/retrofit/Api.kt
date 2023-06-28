@@ -1,4 +1,4 @@
-package quiz.example.androiddevelopertestcase.api
+package quiz.example.androiddevelopertestcase.retrofit
 
 import quiz.example.androiddevelopertestcase.model.MatchResponse
 import retrofit2.http.GET

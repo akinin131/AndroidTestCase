@@ -5,23 +5,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import quiz.example.androiddevelopertestcase.api.Api
+import quiz.example.androiddevelopertestcase.retrofit.RetrofitSingleton
+import quiz.example.androiddevelopertestcase.retrofit.Api
 import quiz.example.androiddevelopertestcase.model.MatchItem
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitViewModel : ViewModel() {
-
     private val _matches = MutableLiveData<List<MatchItem>>()
     val matches: LiveData<List<MatchItem>> get() = _matches
 
     fun fetchMatches() {
         viewModelScope.launch {
-            val retrofit = Retrofit.Builder()
-                .baseUrl("https://apiv2.allsportsapi.com/basketball/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-
+            val retrofit = RetrofitSingleton.getInstance()
             val api = retrofit.create(Api::class.java)
             try {
                 val match = api.getMatch(
@@ -29,7 +23,6 @@ class RetrofitViewModel : ViewModel() {
                     "2616",
                     "2617"
                 )
-
                 _matches.value =
                     match.result.H2H + match.result.firstTeamResults + match.result.secondTeamResults
             } catch (e: Exception) {
@@ -38,4 +31,3 @@ class RetrofitViewModel : ViewModel() {
         }
     }
 }
-

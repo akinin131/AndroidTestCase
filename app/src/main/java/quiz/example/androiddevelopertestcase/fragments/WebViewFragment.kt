@@ -54,8 +54,10 @@ class WebViewFragment : Fragment() {
                     }
                 }
             }
-            requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
-                onBackPressedCallback)
+            requireActivity().onBackPressedDispatcher.addCallback(
+                viewLifecycleOwner,
+                onBackPressedCallback
+            )
         }
 
         binding.btnBack.setOnClickListener {
@@ -75,6 +77,7 @@ class WebViewFragment : Fragment() {
         super.onDestroyView()
         if (::onBackPressedCallback.isInitialized) {
             onBackPressedCallback.remove()
+            super.onDestroyView()
         }
     }
 }

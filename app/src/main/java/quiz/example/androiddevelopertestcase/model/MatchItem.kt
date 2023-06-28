@@ -1,5 +1,6 @@
 package quiz.example.androiddevelopertestcase.model
 
+// Объект данных, отображающий один матч.
 data class MatchItem(
     val event_date: String,
     val event_time: String,

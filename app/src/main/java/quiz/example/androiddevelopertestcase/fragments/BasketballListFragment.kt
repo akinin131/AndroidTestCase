@@ -44,14 +44,23 @@ class BasketballListFragment : Fragment() {
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        //retrofitViewModel = ViewModelProvider(requireActivity())[RetrofitViewModel::class.java]
+       //retrofitViewModel.matches.observe(viewLifecycleOwner) { matches ->
+        //    adapter.setMatches(matches)
+       // }
         retrofitViewModel = ViewModelProvider(requireActivity())[RetrofitViewModel::class.java]
-        retrofitViewModel.matches.observe(viewLifecycleOwner) { matches ->
+        retrofitViewModel.matches.observe(viewLifecycleOwner){ matches ->
             adapter.setMatches(matches)
         }
 
         binding.btnNext.setOnClickListener {
             findNavController().navigate(R.id.action_basketballListFragment_to_webViewFragment)
         }
+        //Первый блок кода создает объект класса OnBackPressedCallback и переопределяет метод handleOnBackPressed(). Этот метод вызывается,
+        //когда пользователь нажимает на кнопку "назад". В данной реализации метода мы добавляем оператор, который завершает текущую Activity,
+        //с помощью вызова метода finish().
+        //Второй блок кода представляет собой добавление данного обработчика в BackPressedDispatcher, который слушает нажатия кнопки "назад". Таким образом,
+        //при нажатии кнопки "назад" будет вызван обработчик из первого блока кода и выполнится завершение текущей Activity.
 
         onBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
